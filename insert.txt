@@ -1,0 +1,57 @@
+INSERT INTO customers 
+VALUES (1,'Shahjahan','Haris','a123','haris@gmail.com','39647363','17117364','Manama Road 3720 House 977');
+
+INSERT INTO customers 
+VALUES (2,'Hamdan','Malik','a124','Hamdan@gmail.com','32210087','17742279','Manama Road 3720 House 977');
+
+INSERT INTO customers 
+VALUES (3,'Haider','Syed','a125','syed@gmail.com','39110022','17227456','Sitra Road 0914 House 113');
+
+INSERT INTO customers 
+VALUES (4,'Costa','Alex','a126','Alex@ymail.com','39653411','17635242','Budaiya Road 1010 Villa 120');
+
+INSERT INTO customers 
+VALUES (5,'Talaq','Yousuf','a127','yousuf@gmail.com','39635344','17003735','Sitra Road 1002 Villa 110');
+
+
+--create into table employee
+INSERT INTO employee 
+VALUES(1,'Ali','Ahmed','staff','Hamood@hotmail.com' ,'39655432','17790052',NULL,20.000,0.03);
+
+INSERT INTO employee VALUES(2,'Ameen','Ameena','manager','AmeenaAmeen@gmail.com','39211934','17435546',NULL,60.000,0.07);
+
+INSERT INTO employee 
+VALUES(3,'Sadiq','Mahmood','admin','mahmood.admin@gmail.com','32210097','17233456',NULL,90.000,0.07);
+
+INSERT INTO employee 
+VALUES (4,'Hussain','Huda','staff','dodo_bird@gmail.com','32110987','17112998',NULL,25.000,0.03);
+
+INSERT INTO employee 
+VALUES (5,'Khalid','Isa','manager','IsaKhalid@gmail.com','32536647','17885034',NULL,50.000,0.07);
+
+
+INSERT INTO showroom 
+VALUES(1,2,'Diplomatic Area','17520443');
+
+INSERT INTO showroom 
+VALUES(2,5,'Riffa','17748839');
+
+
+INSERT INTO cars 
+VALUES(1,'645372',TO_DATE('2014','YYYY'),'Toyota',2500.500,1);
+
+INSERT INTO cars 
+VALUES(2,'830637',TO_DATE('2017','YYYY'),'Honda',8000.300,1);
+
+INSERT INTO cars 
+VALUES(3,'673632',TO_DATE('2013','YYYY'),'KIA',3500.500,2);
+
+INSERT INTO cars 
+VALUES(4,'718172',TO_DATE('2019','YYYY'),'Mazda',12500.500,2);
+
+
+INSERT INTO sale 
+VALUES(1,2,1,2,TO_DATE('13-04-2018','DD-MM-YYYY'),8000.300,'NO',NULL);
+
+INSERT INTO sale 
+VALUES(2,1,4,4,TO_DATE('23-12-2019','DD-MM-YYYY'),12500.500,'NO',NULL);

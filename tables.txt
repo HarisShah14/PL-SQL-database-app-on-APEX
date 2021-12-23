@@ -1,0 +1,72 @@
+DROP TABLE sale CASCADE CONSTRAINTS;
+DROP TABLE car CASCADE CONSTRAINTS;
+DROP TABLE employee CASCADE CONSTRAINTS;
+DROP TABLE customers CASCADE CONSTRAINTS;
+DROP TABLE showroom CASCADE CONSTRAINTS;
+DROP TABLE customer_update_history CASCADE CONSTRAINTS;
+
+--create employee table--
+CREATE TABLE employee
+(
+	e_id	VARCHAR2(5)CONSTRAINTS employee_pk PRIMARY KEY,
+	f_name	VARCHAR2(15),
+	l_name	VARCHAR2(15),
+	mobphone	VARCHAR2(10)CONSTRAINTS e_phone_nn NOT NULL,
+	homephone	VARCHAR2(10),
+	email	VARCHAR2(50),
+	job_title	VARCHAR2(50),
+	extention	VARCHAR2(32),
+	hourlysalary	NUMBER(6,3),
+	discountallowed	NUMBER(3,2)
+);
+
+--create customer table--
+CREATE TABLE customers
+(
+	c_id	VARCHAR2(5)CONSTRAINTS customer_pk PRIMARY KEY,
+	f_name	VARCHAR2(15),
+	l_name	VARCHAR2(15),
+	mobphone	VARCHAR2(10)CONSTRAINTS c_phone_nn NOT NULL,
+	email	VARCHAR2(50),
+	mi	VARCHAR2(10),
+	address VARCHAR2(30)CONSTRAINTS add_cust_nn NOT NULL
+);
+
+--create showroom table--
+CREATE TABLE showroom (
+	showroom_id	VARCHAR2(5)CONSTRAINTS showroom_pk PRIMARY KEY,
+	mgr_id	VARCHAR2(5) CONSTRAINTS show_emp_fk REFERENCES employee(e_id),
+	address VARCHAR2(30)CONSTRAINTS add_show_nn NOT NULL,
+	phone	VARCHAR2(10)CONSTRAINTS showroom_phone_nn NOT NULL
+);
+--create car table--
+CREATE TABLE car
+(
+	car_no	VARCHAR2(5)CONSTRAINTS car_pk PRIMARY KEY,
+	vin	VARCHAR2(50),
+	model	VARCHAR2(20)CONSTRAINTS model_nn NOT NULL,
+	make	VARCHAR2(20),
+	showroom_id	VARCHAR2(5) CONSTRAINTS car_room_fk REFERENCES showroom (showroom_id)
+);
+--create sale table--
+CREATE TABLE sale
+(
+	sale_no	VARCHAR2(5)CONSTRAINTS  sale_pk PRIMARY KEY,
+	c_id	VARCHAR2(5) CONSTRAINTS sale_cust_fk REFERENCES customers (c_id),
+	e_id	VARCHAR2(5)CONSTRAINTS  sale_emp_fk REFERENCES employee (e_id),
+	car_no	VARCHAR2(5)CONSTRAINTS sale_car_fk REFERENCES car (car_no),
+	saledate DATE,
+	cost	NUMBER(8,3),
+	paidinfull VARCHAR2(30)CONSTRAINTS paid_nn NOT NULL,
+	additional_comm VARCHAR2(150)
+);
+
+--create log table--
+CREATE TABLE customer_update_history
+(
+	updating_user VARCHAR2(30),
+	datetime_change VARCHAR2(40),
+	field VARCHAR2(40),
+	old_field VARCHAR2(40),
+	new_field VARCHAR2(40)
+);
